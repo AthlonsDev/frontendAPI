@@ -11,7 +11,7 @@ export default function Book_Form() {
         Inns: 0,
         Runs: 0,
         HS: 0,
-        AVE: 0,
+        Ave: 0,
     }
 )
 

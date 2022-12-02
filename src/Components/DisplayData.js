@@ -3,18 +3,21 @@ import {Link} from 'react-router-dom';
 
 const ShowData = (props) => {
     
-    const data = props.TBooks
+    const data = props.Players
+    console.log("Showdata called " + data.length);
     if (data.length>0) {
-        return (data.map((items, index) => { return (
+        return (data.map((players, index) => { 
+            return (
+            // console.log("Players " + players.Player_Name)
             <tr>
-                <td>{items.Player_Name}</td>
-                <td>{items.Matches}</td>
-                <td>{items.Inns}</td>
-                <td>{items.Runs}</td>
-                <td>{items.HS}</td>
-                <td>{items.Ave}</td>
-                <td><Link to={'/edit/' + items._id}></Link></td>
-                <td><Link to={'/Delete/' + items._id}></Link></td>
+                <td>{players.Player_Name}</td>
+                <td>{players.Matches}</td>
+                <td>{players.Inns}</td>
+                <td>{players.Runs}</td>
+                <td>{players.HS}</td>
+                <td>{players.Ave}</td>
+                <td><Link to={'/edit/' + players._id}></Link></td>
+                <td><Link to={'/Delete/' + players._id}></Link></td>
             </tr>
         )
     })
@@ -25,7 +28,8 @@ const ShowData = (props) => {
     }
 
     export default function DisplayData(props) {
-        const Players = props.items
+        const Players = props.data
+        // console.log("Player: " + Players)
         return (
             <div>
                 <h3>Player List</h3>
@@ -41,7 +45,7 @@ const ShowData = (props) => {
                         </tr>
                     </thead>
                     <tbody>
-                        <ShowData TBooks={Players}></ShowData>
+                        <ShowData Players={Players}></ShowData>
                     </tbody>
                 </table>
             </div>

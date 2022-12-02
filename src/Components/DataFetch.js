@@ -4,19 +4,24 @@ import React, {useEffect, useState} from 'react';
 
 export default function DataFetch() {
 
-    console.log("Display function called");
     const [Items, setItems] = useState([])
-    const url = "http://localhost:5000/displaydata"
+    const url = "http://localhost:5000/Display"
 
     useEffect(() =>{
-        axios.get(url).then(response =>{setItems(response.data)}
+        // console.log("useEffect called");
+        axios.get(url).then(res =>{
+            // console.log("Display: " + res.data)
+            setItems(res.data)
+        }
     )
         .catch(err=>{console.log("Error retrieving data")
     })
+    DisplayData(Items)
     }, [])
+    // console.log("Items Parsed: " + Items)
     return (
         <div>
-            <DisplayData Item={Items}></DisplayData>
+            <DisplayData data={Items}></DisplayData>
         </div>
     )
 }

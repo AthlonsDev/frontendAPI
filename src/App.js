@@ -17,7 +17,7 @@ import React, {useEffect, useState} from 'react';
 //   }
 // })
 
-// fetch('http://localhost:3000/addplayer', {
+// fetch('http://localhost:5000/addplayer', {
 //   method: 'POST',
 //   headers: {
 //     'Content-Type': 'application/json'

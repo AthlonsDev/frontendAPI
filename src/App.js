@@ -1,56 +1,53 @@
-import './App.css';
+// import './App.css';
+import "bootstrap/dist/css/bootstrap.min.css"
+import Book_Form from './Components/Add'
+import Book_Update from './Components/Update'
+import Display_Data from './Components/DataFetch'
+import Book_Delete from './Components/Delete'
 import axios from 'axios';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 
+// fetch('http://localhost:3001/')
+// .then( res => {
+//   if (res.ok) {
+//     console.log("Data fetched successfully")
+//   } else {
+//     console.log("Fetch failed")
+//   }
+// })
 
+// fetch('http://localhost:3000/addplayer', {
+//   method: 'POST',
+//   headers: {
+//     'Content-Type': 'application/json'
+//   },
+//   body: JSON.stringify({
+//     Player_Name: 'Player_1'
+//   })
+// }).then(res => {
+//   return res.json()
+// }).then(data => console.log(data))
+//   .catch(err => console.log('Error: ' + err.message))
 
-const RecordUpdate = (props) => {
-  // url might be updated with routing hence let 
-  let url = 'http://localhost:3001'
-  const [state, setState] = useState({
-    booktitle: "",
-    author: "",
-    formate: "",
-    topic: "",
-    pubyear: 1990
-  })
-}
-
-const HandleClick = (e) => {
-  const [state, setState] = useState
-  const value = e.target.value;
-  setState({
-    ...state,
-    [e.target.value]: value
-  })
-  let url = 'http://localhost:3000'
-
-  console.log('Function called')
-  axios.get(url)
-    .then(res=> {
-      console.log('data received')
-      console.log(res.data)
-    })
-}
 
 function App() {
   return (
-    <div className="App-main">
-      <div className="navBar">
-        <h1>Title</h1>
-      </div>
-      <div className="leftColumn">
-        List of Data
-        <button onClick={HandleClick}>Click</button>
-        <table className="list">
-            
-        </table>
-        <div className="detailView">
-          <h1>Main View</h1>
-        </div>
-      </div>
-
+    <Router>
+    <div className="container">
+      <center><h2> OnLine Book Library</h2></center>
+      <nav className="navbar navbar-expand-lg navbar-light bg-success">
+        <Link to="/" className="navbar-brand"><h4>Add a Book</h4></Link>
+        <Link to="/Display" className="navbar-brand"><h4>Show All Books</h4></Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Book_Form/>}></Route>
+        <Route path="/edit/:id" element={<Book_Update/>}></Route>
+        <Route path="/Display" element={<Display_Data/>}></Route>
+        
+      </Routes>
     </div>
+    </Router>
   );
 }
 

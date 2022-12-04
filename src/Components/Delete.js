@@ -12,7 +12,7 @@ export default function DeletePlayer(props) {
         console.log("id: " + params.id)
         axios.post("http://localhost:5000/deleteplayer/" + params.id)
         .then(res =>{
-            axios.get(url + "/Display")
+            axios.get(url + "Display")
             .then(res => {
 
                 console.log("Data received")

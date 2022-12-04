@@ -32,7 +32,7 @@ const OnSubmit = (e) => {
     Inns: 100,
     Runs: 100,
     HS: 100,
-    AVE: 100
+    Ave: 100
     
     // author:state.author,
     // Topic:state.Topic,
@@ -45,75 +45,49 @@ const OnSubmit = (e) => {
 }
 return (
     <div style={{marginTop: 10}}>
-    <h3>Add Book</h3>
+    <h3>Add Player</h3>
     <form onSubmit={OnSubmit} method="Post">
     <div className="form-group">
-    <label>Book Title: </label>
+    <label>Player Name: </label>
     <input className="form-control"
     type="text" name="booktitle"
     value={state.booktitle}
     onChange={handleChange}/>
     </div>
     <div className="form-group">
-    <label>Book Authors: </label>
+    <label>Matches: </label>
     <input className="form-control"
-    name="author"value={state.author}
+    name="author"value={state.Matches}
     onChange={handleChange}/>
     </div>
     <div className="form-group">
-    <label>
-    Pick Book topic :{" "}
-    <select className="form-control"
-    name="Topic" value={state.Topic}
-    onChange={handleChange}>
-    <option value="Computer Science">CS</option>
-    <option value="Programming" >Programming</option>
-    <option value="Data Science">Data Sceince</option>
-    <option value="AI">AI</option>
-    <option value="Engineering">Engineering</option>
- </select>
- </label>
- </div>
- <div className="form-group">
- <label>Formate: </label>
- <div className="form-check form-check-inline">
- <input className="form-check-label"
- type="radio" name="formate" value="Hard Co
-py"
- checked={state.formate === "Hard Copy"}
- onChange={handleChange}/>
- <label className="form-checklabel"> Hard Copy </label>
- </div>
- <div className="form-check form-checkinline">
- <input className="form-check-label"
- type="radio"name="formate" value="Electron
-ic Copy"
- checked={state.formate === "Electronic Copy"}
- onChange={handleChange}
- />
- <label className="form-checklabel"> Electronic Copy</label>
- </div>
- </div>
- <div>
- <label>
- Publication Year (between 1980 and 2020):
- <input
- type="range"name="PubYear"
- min="1980"max="2020" value={state.PubYear}
- onChange={handleChange} />
- </label>
- </div>
+    <label>Inns: </label>
+    <input className="form-control"
+    name="author"value={state.Inns}
+    onChange={handleChange}/>
+    </div>
+    <div className="form-group">
+    <label>Runs: </label>
+    <input className="form-control"
+    name="author"value={state.Runs}
+    onChange={handleChange}/>
+    </div>
+    <div className="form-group">
+    <label>Ave: </label>
+    <input className="form-control"
+    name="author"value={state.Ave}
+    onChange={handleChange}/>
+    </div>
+    <div className="form-group" style={{marginTop: 25}}>
+    <center>
+    <input type="submit" value="Add this Player"
+    className="btn btn-primary" />
+    </center>
+    </div>
 
- <div className="form-group">
- <center>
- <input type="submit" value="Add this book"
-className="btn btn-primary" />
- </center>
- </div>
+    </form>
 
- </form>
-
- </div>
+    </div>
  );
 
 }

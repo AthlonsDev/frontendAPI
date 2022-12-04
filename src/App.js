@@ -3,8 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import Book_Form from './Components/Add'
 import Book_Update from './Components/Update'
 import Display_Data from './Components/DataFetch'
-import Book_Delete from './Components/Delete'
-import axios from 'axios';
+import Delete from './Components/Delete'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 
@@ -44,7 +43,7 @@ function App() {
         <Route path="/" element={<Book_Form/>}></Route>
         <Route path="/edit/:id" element={<Book_Update/>}></Route>
         <Route path="/Display" element={<Display_Data/>}></Route>
-        
+        <Route path="/delete/:id" element={<Delete/>}></Route>      
       </Routes>
     </div>
     </Router>

@@ -17,25 +17,29 @@ export default function UpdateForm(props) {
  let params = useParams()
 
  const handleChange = (e) => {
-    const value = e.target.value
-    setState({ 
-        ...state,
-        [e.target.value]: value
-    })
+    const newValue = e.target.value
+    // console.log(newValue)
+    setState({
+        ...state, 
+        [e.target.name]: e.target.value
+    });
+    console.log("newState: " + state)
  }
 
  useEffect(() => {
-    axios.get(url+"Display"+params.id)
-    .then(res => {
-        console.log("update " +res.data)
-        setState(res.data)
+    // console.log(params.id)
+         axios.get("http://localhost:5000/getplayer/"+params.id).then(res =>{
+            // console.log("Display: " + res.data)
+            setState(res.data)
+        }
+    )
+        .catch(err=>{console.log("Error retrieving data")
     })
-    .catch(err => {
-        console.log("Error getting data")
-    })
- }, [])
+    
+    }, [])
 
  const OnSubmit = (e) => {
+    console.log(state.Player_Name)
     e.preventDefault()
     const playerData={
         Player_Name: state.Player_Name,
@@ -45,14 +49,50 @@ export default function UpdateForm(props) {
         HS: state.HS,
         Ave: state.Ave,
     }
-    axios.post(url+"updateplayer" + params.id, playerData)
-    .then(res => console.log(res.data))
+    console.log(playerData);
+    axios.post(url+"updateplayer/" + params.id, playerData)
+        .then(res => console.log(res.data))
 
     }
 
     return (
-        <div>
-
+        <div style={{marginTop: 10}}>
+            <h3>Update Player: </h3>
+            <form onSubmit={OnSubmit} method="Post">
+                <div className='from-group'>
+                    <label>Player Name</label>
+                    <input type="text" className='from-control' name="Player_Name"
+                    value={state.Player_Name} onChange={handleChange}></input>
+                </div>
+                    <div className='from-group'>
+                        <label>Matches</label>
+                        <input type="text" className='from-control' name="Matches" 
+                        value={state.Matches} onChange={handleChange}></input>
+                </div>
+                <div className='from-group'>
+                    <label>Inns</label>
+                    <input type="text" className='from-control' name="Inns"
+                    value={state.Inns} onChange={handleChange}></input>
+                </div>
+                <div className='from-group'>
+                    <label>Runs</label>
+                    <input type="text" className='from-control' name="Runs"
+                    value={state.Runs} onChange={handleChange}></input>
+                </div>
+                <div className='from-group'>
+                    <label>HS</label>
+                    <input type="text" className='from-control' name="HS"
+                    value={state.HS} onChange={handleChange}></input>
+                </div>
+                <div className='from-group'>
+                    <label>Ave</label>
+                    <input type="text" className='from-control' name="Ave"
+                    value={state.Ave} onChange={handleChange}></input>
+                </div>
+                <div className="from-group">
+                    <input type="submit" className="btn btn-primary" value="Update" />
+                </div>
+            </form>
         </div>
     )
 }

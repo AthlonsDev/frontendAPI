@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const ShowData = (props) => {
     
     const data = props.Players
-    console.log("Showdata called " + data.length);
+    // console.log("Showdata called " + data.length);
     if (data.length>0) {
         return (data.map((players, index) => { 
             return (
@@ -16,8 +16,8 @@ const ShowData = (props) => {
                 <td>{players.Runs}</td>
                 <td>{players.HS}</td>
                 <td>{players.Ave}</td>
-                <td><Link to={'/edit/' + players._id}></Link></td>
-                <td><Link to={'/Delete/' + players._id}></Link></td>
+                <td><Link to={'/edit/' + players._id}>Edit</Link></td>
+                <td><Link to={'/Delete/' + players._id}>Delete</Link></td>
             </tr>
         )
     })

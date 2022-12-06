@@ -46,33 +46,23 @@ return (
     <div className="form-group">
     <label>Player Name: </label>
     <input className="form-control"
-    type="text" name="Player_Name"
-    value={state.Player_Name}
-    onChange={handleChange}/>
+    type="text" name="Player_Name" value={state.Player_Name} onChange={handleChange}/>
     </div>
     <div className="form-group">
     <label>Matches: </label>
-    <input className="form-control"
-    name="Matches"value={state.Matches}
-    onChange={handleChange}/>
+    <input className="form-control" name="Matches"value={state.Matches} onChange={handleChange}/>
     </div>
     <div className="form-group">
     <label>Inns: </label>
-    <input className="form-control"
-    name="Inns"value={state.Inns}
-    onChange={handleChange}/>
+    <input className="form-control" name="Inns"value={state.Inns} onChange={handleChange}/>
     </div>
     <div className="form-group">
     <label>Runs: </label>
-    <input className="form-control"
-    name="Runs"value={state.Runs}
-    onChange={handleChange}/>
+    <input className="form-control" name="Runs"value={state.Runs} onChange={handleChange}/>
     </div>
     <div className="form-group">
     <label>Ave: </label>
-    <input className="form-control"
-    name="Ave"value={state.Ave}
-    onChange={handleChange}/>
+    <input className="form-control" name="Ave"value={state.Ave} onChange={handleChange}/>
     </div>
     <div className="form-group" style={{marginTop: 25}}>
     <center>

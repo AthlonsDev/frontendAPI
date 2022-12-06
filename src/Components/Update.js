@@ -55,9 +55,10 @@ export default function UpdateForm(props) {
 
     }
 
+
     return (
         <div style={{marginTop: 10}}>
-            <h3>Update Player: </h3>
+            <h3>Update Player By ID: {params.id}</h3>
             <form onSubmit={OnSubmit} method="Post">
                 <div className='from-group'>
                     <label>Player Name</label>

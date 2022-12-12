@@ -45,8 +45,8 @@ import {Link} from 'react-router-dom';
                     <td>{players.Runs}</td>
                     <td>{players.HS}</td>
                     <td>{players.Ave}</td>
-                    <td><Link to={'/edit/' + players._id}>Edit</Link></td>
-                    <td><Link to={'/Delete/' + players._id}>Delete</Link></td>
+                    <td><button type="button" class="btn btn-success" ><Link to={'/edit/' + players._id} class="text-white">Edit</Link></button></td>
+                    <td><button type="button" class="btn btn-danger"><Link to={'/Delete/' + players._id} class="text-white">Delete</Link></button></td>
                 </tr>
             )
         })

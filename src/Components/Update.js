@@ -60,40 +60,35 @@ export default function UpdateForm(props) {
         <div style={{marginTop: 10}}>
             <h3>Update Player By ID: {params.id}</h3>
             <form onSubmit={OnSubmit} method="Post">
-                <div className='from-group'>
-                    <label>Player Name</label>
-                    <input type="text" className='from-control' name="Player_Name"
-                    value={state.Player_Name} onChange={handleChange}></input>
-                </div>
-                    <div className='from-group'>
-                        <label>Matches</label>
-                        <input type="text" className='from-control' name="Matches" 
-                        value={state.Matches} onChange={handleChange}></input>
-                </div>
-                <div className='from-group'>
-                    <label>Inns</label>
-                    <input type="text" className='from-control' name="Inns"
-                    value={state.Inns} onChange={handleChange}></input>
-                </div>
-                <div className='from-group'>
-                    <label>Runs</label>
-                    <input type="text" className='from-control' name="Runs"
-                    value={state.Runs} onChange={handleChange}></input>
-                </div>
-                <div className='from-group'>
-                    <label>HS</label>
-                    <input type="text" className='from-control' name="HS"
-                    value={state.HS} onChange={handleChange}></input>
-                </div>
-                <div className='from-group'>
-                    <label>Ave</label>
-                    <input type="text" className='from-control' name="Ave"
-                    value={state.Ave} onChange={handleChange}></input>
-                </div>
-                <div className="from-group">
-                    <input type="submit" className="btn btn-primary" value="Update" />
-                </div>
-            </form>
+    <div className="form-group">
+    <label>Player Name: </label>
+    <input className="form-control"
+    type="text" name="Player_Name" value={state.Player_Name} onChange={handleChange}/>
+    </div>
+    <div className="form-group">
+    <label>Matches: </label>
+    <input className="form-control" name="Matches"value={state.Matches} onChange={handleChange}/>
+    </div>
+    <div className="form-group">
+    <label>Inns: </label>
+    <input className="form-control" name="Inns"value={state.Inns} onChange={handleChange}/>
+    </div>
+    <div className="form-group">
+    <label>Runs: </label>
+    <input className="form-control" name="Runs"value={state.Runs} onChange={handleChange}/>
+    </div>
+    <div className="form-group">
+    <label>Ave: </label>
+    <input className="form-control" name="Ave"value={state.Ave} onChange={handleChange}/>
+    </div>
+    <div className="form-group" style={{marginTop: 25}}>
+    <center>
+    <input type="submit" value="Add this Player"
+    className="btn btn-primary" />
+    </center>
+    </div>
+
+    </form>
         </div>
     )
 }

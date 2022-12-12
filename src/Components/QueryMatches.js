@@ -4,7 +4,8 @@ import { useParams } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 
 export default function DataFetch() {
-    const [query, setQuery] = useState(0)
+    const [Matches, setMatches] = useState(0)
+    const [HS, setHS] = useState(0)
     const [source, setSource] = useState("")
     const [Items, setItems] = useState([])
     let params = useParams()
@@ -14,9 +15,18 @@ export default function DataFetch() {
     const handleChange = (e) => {
         const newValue = e.target.value
         // console.log(newValue)
-        setQuery(newValue)
         setSource(e.target.name)
-        console.log("newquery: " + query)
+        console.log(source)
+        
+        if(source === 'Matches') {
+            setMatches(newValue)
+            // console.log('Matches: ' + Matches)
+        }
+        if (source === 'HS') {
+            setHS(newValue)
+            // console.log('HS ' + HS)
+        }
+        // console.log("newquery: " + query)
      }
      let url = ""
      if(source === "Matches") {
@@ -25,26 +35,37 @@ export default function DataFetch() {
      else {
         url = 'http://localhost:5000/DisplayHS/'
      }
-
+ 
      useEffect(() =>{
      console.log("useEffect called");
-     axios.get(url + query, {
-        // params: {
-        //   Matches: query
-        // }
-      }).then(res =>{
-         // console.log("Display: " + res.data)
-         setItems(res.data)
+     if(source === 'Matches') {
+        axios.get(url + Matches, {
+            // params: {
+            //   Matches: query
+            // }
+          }).then(res =>{
+             // console.log("Display: " + res.data)
+             setItems(res.data)
+         }
+        )
+         .catch(err=>{console.log("Error retrieving data")
+        })
      }
-    )
-     .catch(err=>{console.log("Error retrieving data")
-    })
-    DisplayData(Items)
-    }, [query])
+     else {
+        axios.get(url + HS, {
+            // params: {
+            //   Matches: query
+            // }
+          }).then(res =>{
+             // console.log("Display: " + res.data)
+             setItems(res.data)
+         }
+        )
+         .catch(err=>{console.log("Error retrieving data")
+        })
+     }
 
-     const OnSubmit = (e) => {
-        setQuery(e.target.value)
-    }
+    }, [Matches, HS])
 
     // console.log("Items Parsed: " + Items)
     return (
@@ -54,10 +75,10 @@ export default function DataFetch() {
                 <div className='from-group'>
                     <label>Matches</label>
                     <input type="text" className='from-control' name="Matches" 
-                    value={query} onChange={handleChange}></input>
+                    value={Matches} onChange={handleChange}></input>
                     <label>HS</label>
                     <input type="text" className='from-control' name="HS" 
-                    value={query} onChange={handleChange}></input>
+                    value={HS} onChange={handleChange}></input>
                 </div>
                 
         </form>

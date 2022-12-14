@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import axios from 'axios';
 
-export default function Book_Form() {
+export default function Player_Form() {
     let url= "http://localhost:5000/"
     const [state, setState] = useState(
     {

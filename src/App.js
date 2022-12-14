@@ -13,14 +13,14 @@ function App() {
     <div className="container">
       <center><h2> Player Records</h2></center>
       <nav className="navbar bg-secondary">
-        <Link to="/" className="navbar-brand  text-white"><h4>Add a Player</h4></Link>
-        <Link to="/Display" className="navbar-brand  text-white" ><h4>Show All Players</h4></Link>
+        <Link to="/Add" className="navbar-brand  text-white"><h4>Add a Player</h4></Link>
+        <Link to="/" className="navbar-brand  text-white" ><h4>Show All Players</h4></Link>
         <Link to="/QueryMatches" className="navbar-brand  text-white"><h4>Query Matches</h4></Link>
       </nav>
       <Routes>
-        <Route path="/" element={<Player_Form/>}></Route>
+        <Route path="/Add" element={<Player_Form/>}></Route>
         <Route path="/edit/:id" element={<Player_Update/>}></Route>
-        <Route path="/Display" element={<Display_Data/>}></Route>
+        <Route path="/" element={<Display_Data/>}></Route>
         <Route path="/delete/:id" element={<Delete/>}></Route>      
         <Route path="/QueryMatches" element={<Query_Matches/>}></Route> 
       </Routes>

@@ -26,17 +26,6 @@ export default function UpdateForm(props) {
     console.log("newState: " + state)
  }
 
- useEffect(() => {
-    // console.log(params.id)
-         axios.get("http://localhost:5000/getplayer/"+params.id).then(res =>{
-            // console.log("Display: " + res.data)
-            setState(res.data)
-        }
-    )
-        .catch(err=>{console.log("Error retrieving data")
-    })
-    
-    }, [])
 
  const OnSubmit = (e) => {
     console.log(state.Player_Name)
@@ -55,6 +44,17 @@ export default function UpdateForm(props) {
 
     }
 
+    useEffect(() => {
+        // console.log(params.id)
+             axios.get("http://localhost:5000/getplayer/"+params.id).then(res =>{
+                // console.log("Display: " + res.data)
+                setState(res.data)
+            }
+        )
+            .catch(err=>{console.log("Error retrieving data")
+        })
+        
+        }, [])
 
     return (
         <div style={{marginTop: 10}}>
